@@ -11,22 +11,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
   m_Name: ModConfig
   m_EditorClassIdentifier: 
-  id: playfairCycle
-  title: Playfair Cycle
+  id: enigmaCycleMod
+  title: Enigma Cycle
   author: Speakingevil
-  description: 'Playfair Cycle ver 1.0
+  description: 'Enigma Cycle ver 1.0
 
-    Just because it plays *fair* doesn''t mean it''ll play *nice*.
+    [i]Round and round and round it goes. When will it stop? Hell if I know.[/i]
 
 
-    Use the dials to assemble a keysquare and decipher the message written on them.
-    Then send an encrypted message back.
+    Use the dials to assemble an enigma machine and decipher the message written on
+    them. Then send an encrypted message back.
 
 
     Created by Speakingevil
 
 
-    ID: playfairCycle'
+    ID: enigmaCycle'
   version: 1.0
   outputFolder: build
-  previewImage: {fileID: 2800000, guid: fd31cfc6bd2b9ff48a4d7430e47e90ce, type: 3}
+  previewImage: {fileID: 0}
