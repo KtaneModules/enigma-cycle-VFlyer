@@ -18,15 +18,19 @@ MonoBehaviour:
 
     [i]Round and round and round it goes. When will it stop? Hell if I know.[/i]
 
+    Contains Enigma Cycle
+
 
     Use the dials to assemble an enigma machine and decipher the message written on
     them. Then send an encrypted message back.
 
 
-    Created by Speakingevil
+    Created by VFlyer
+
+    With assistance from Speakingevil with the visuals
 
 
     ID: enigmaCycle'
   version: 1.0
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: 493331ae077b1074e864af98a6a358c1, type: 3}
