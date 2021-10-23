@@ -207,18 +207,18 @@
                     <p>The word has been encrypted through an Enigma Cipher, with the orientation of the dials depicting the initial setup of the Enigma Decoder.</p>
                     <ul>
                         <li>The number of 120&deg; clockwise rotations of the first dial from north, plus one is the alphabetical position of the reflector being used.</li>
-                        <li>The number of 45&deg; clockwise rotations of the second, third and fourth dials from north, plus one, are the top, middle and bottom rotors, respectively.</li>
-                        <li>The number of 30&deg; clockwise rotations of the fifth, sixth and seventh dials from north, plus two, is the alphabetical position to align the bottom half of the top, middle and bottom rotors, respectively.</li>
+                        <li>The number of 45&deg; clockwise rotations of the second, third and fourth dials from north, plus one, refer to the rotor type used for the bottom, middle and top rotors, respectively.</li>
+                        <li>The number of 30&deg; clockwise rotations of the fifth, sixth and seventh dials from north, plus one, is the initial amount to shift to the left for the bottom, middle and top rotors, respectively. This may get altered.</li>
                         <li>The direction of the eight dial determines the modifier:<ul>
                             <li>If the dial is facing north, the encryption is performed normally.</li>
                             <li>If the dial is facing northeast, then the reflector must be used backwards. (I.E. AX reflection pair when read forwards, Z follows AX reflection to C)</li>
                             <li>If the dial is facing east, southeast or south, the bottom, middle or top rotor, respectively, will instead rotate to the right instead of the left during the encryption process.</li>
-                            <li>If the dial is facing southwest, west or northwest, the bottom, middle or top rotor's initial rotation is backwards, respectively. (I.E. If the initial rotation requires going 5 left initially, you would go 5 right instead.)</li>
+                            <li>If the dial is facing southwest, west or northwest, the bottom, middle or top rotor's initial shift is backwards, respectively. (I.E. If the initial shift requires going 5 left initially, you would go 5 right instead.)</li>
                             </ul>
                         </li>
                     </ul>
-                    <p>Use the correct rotor charts and correct reflector chart to use to create an Enigma Decryptor.</p>
-                    <p>They are read in this order: Reflector - Bottom Rotor - Middle Rotor - Top Rotor. Above the top rotor, you will type A-Z to use as the plugboard.</p>
+                    <p>Use the correct rotor charts and the correct reflector chart to create an Enigma Decryptor.</p>
+                    <p>They are created in this order: Reflector - Bottom Rotor - Middle Rotor - Top Rotor. Above the top rotor, you will type A-Z to use as the plugboard.</p>
                     <p>Use the schematic at the last 3 pages provided to help you create the Enigma Decryptor.</p>
                     <p class="lore">We were legally required to say that by an entity that manages Enigma Machines.</p>
                 </div>
@@ -246,7 +246,8 @@
                         <li>Repeat this procedure with the next letter until you have the encrypted message.</li>
                     </ol>
                     <p>Once deciphered, find the word in the table below, the word written below it is the word that should be entered.
-                    </p><p>Apply the same encryption to the response word, and type out the encrypted response word using the keys.</p>
+                    </p>
+					<p>Apply the same encryption to the response word, and type out the encrypted response word using the keys.</p>
                     <p>The word is automatically submitted when eight keys are pressed.</p>
                     <p>The red button can be pressed at any time before the eighth key is pressed to cancel the input.</p>
                     <p>Inputting any of the eight letters incorrectly will cause a strike to be issued and reset the module.</p>

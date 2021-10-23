@@ -245,7 +245,8 @@ public class EnigmaCycleScript : MonoBehaviour {
 		QuickLog(string.Format("The encrypted message displayed is {0}", encryptedDisplay));
 		for (var y = 0; y < debugLetterSequence.Count; y++)
 		{
-			QuickLog(string.Format("For the {1} letter, the path the module took to encrypt is {0}", debugLetterSequence[y].Join(" -> "), positionIndexes[y]));
+			debugLetterSequence[y].Reverse();
+			QuickLog(string.Format("For the {1} letter, the path the the expert should take to decrypt is {0}", debugLetterSequence[y].Join(" -> "), positionIndexes[y]));
 		}
 		QuickLog(string.Format("The message is {0}", selectedMessageResponsePair.Key));
 		QuickLog(string.Format("The response is {0}", selectedMessageResponsePair.Value));
@@ -470,7 +471,7 @@ public class EnigmaCycleScript : MonoBehaviour {
     }
 
 #pragma warning disable 414
-	private string TwitchHelpMessage = "\"!{0} <A-Z>\" (Example: \"!{0} GREATCMD\") [Inputs those letters, spaces can be used to separate each character] | \"!{0} cancel/delete/clear\" [Deletes inputs], \"!{0} submit/type/enter/input ALUMITE\"";
+	private string TwitchHelpMessage = "\"!{0} <A-Z>\" (Example: \"!{0} GREATCMD\") [Inputs those letters, spaces can be used to separate each character] | \"!{0} cancel/delete/clear\" [Deletes inputs], \"!{0} submit/type/enter/input ALUMITES\" [Clears the display, and then submit \"ALUMITES\" on the module]";
 #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string cmd)
     {
@@ -493,10 +494,45 @@ public class EnigmaCycleScript : MonoBehaviour {
 		}
 		else if (matchType.Success)
         {
+			var matchedValue = matchType.Value.ToUpperInvariant().Split().Skip(1);
+
+			var selectablesToPress = new List<KMSelectable>();
+			foreach (string stringSet in matchedValue)
+			{
+				foreach (char aChar in stringSet)
+				{
+					var idx = keyboardLayout.IndexOf(aChar);
+					if (idx == -1)
+					{
+						yield return string.Format("sendtochaterror I cannot type the following character onto the module: {0}", aChar);
+						yield break;
+					}
+					selectablesToPress.Add(letterSelectables[idx]);
+				}
+			}
+			if (selectablesToPress.Count != 8)
+            {
+				yield return string.Format("sendtochaterror I want exactly 8 letters to submit on the module when using this command, no more, no less.");
+				yield break;
+			}
 			yield return null;
 			letterSelectables.Last().OnInteract();
 			yield return new WaitForSeconds(0.05f);
 			letterSelectables.Last().OnInteractEnded();
+			foreach (KMSelectable curSelectable in selectablesToPress)
+			{
+				yield return new WaitForSeconds(0.05f);
+				curSelectable.OnInteract();
+				yield return new WaitForSeconds(0.05f);
+				curSelectable.OnInteractEnded();
+				if (isSolving)
+				{
+					yield return "solve";
+					yield break;
+				}
+				else if (!allowInteractions)
+					yield break;
+			}
 		}
 		else
         {

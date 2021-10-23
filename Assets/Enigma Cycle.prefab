@@ -2049,7 +2049,7 @@ Transform:
   m_GameObject: {fileID: 1616733545540118}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 1.2100011, z: -0.00000091314354}
-  m_LocalScale: {x: 0.040328093, y: 0.035, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.035, z: 1}
   m_Children: []
   m_Father: {fileID: 4651622514569230}
   m_RootOrder: 1
@@ -2974,7 +2974,7 @@ Transform:
   m_GameObject: {fileID: 1879800183046798}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 1.21, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.027, z: 0}
+  m_LocalScale: {x: 0.035, y: 0.027, z: 0}
   m_Children: []
   m_Father: {fileID: 4651622514569230}
   m_RootOrder: 0
@@ -3844,7 +3844,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: b998fa1c1ae1fb04ba2e5e65ba6cea6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5612,7 +5612,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: b998fa1c1ae1fb04ba2e5e65ba6cea6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6905,7 +6905,7 @@ TextMesh:
   m_FontSize: 200
   m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: 1824f9eaa30d8354181d3b695f1819a6, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -7094,7 +7094,7 @@ TextMesh:
   m_FontSize: 200
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: 1824f9eaa30d8354181d3b695f1819a6, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080

@@ -12,18 +12,27 @@ MonoBehaviour:
   m_Name: ModConfig
   m_EditorClassIdentifier: 
   id: enigmaCycleMod
-  title: Enigma Cycle
-  author: Speakingevil
+  title: Enigma Cycle (Standard + Reimagined Versions)
+  author: VFlyer, Speakingevil
   description: 'Enigma Cycle ver 1.0
 
     [i]Round and round and round it goes. When will it stop? Hell if I know.[/i]
 
-    Contains Enigma Cycle
+    Contains 2 versions of Enigma Cycle, Standard and Reimagined
+
+    - Standard is heavily focused on the mod idea version of the original manual,
+    with clarity in mind.
+
+    - Reimagined is more focused on twisting up the standard mod idea to make the
+    module easier but still difficult to manage by changing up the reads and experting
+    process.
 
 
     Use the dials to assemble an enigma machine and decipher the message written on
     them. Then send an encrypted message back.
 
+
+    Original Mod Idea by Papyrus Semi
 
     Created by VFlyer
 
