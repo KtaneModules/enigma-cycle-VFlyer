@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnigmaCycleScript : MonoBehaviour {
 
 	const string keyboardLayout = "QWERTYUIOPASDFGHJKLZXCVBNM",
-		blacklistedKeys = "", baseAlphabetUsed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", disarmText = "DISARMED";
+		blacklistedKeys = "", baseAlphabetUsed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", disarmText = "WELLDONE";
 	private readonly string[] positionIndexes = { "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th" };
 	private static Dictionary<int, string> enigmaRotors = new Dictionary<int, string>
 	{
