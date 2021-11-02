@@ -142,8 +142,10 @@ public class EnigmaCycleScript : MonoBehaviour {
             {
 				QuickLog(string.Format("{0} was incorrectly submitted. Resetting...", display.text));
 				modSelf.HandleStrike();
+				StartCoroutine(ShakeDisplay());
 				display.color = Color.red;
 				ResetModule();
+
             }
         }
 	}
@@ -345,7 +347,18 @@ public class EnigmaCycleScript : MonoBehaviour {
 		return input;
     }
 	*/
+	IEnumerator ShakeDisplay()
+    {
+		var lastPos = display.transform.localPosition;
+		for (float x = 0; x < 1f; x += Time.deltaTime * 2)
+		{
+			yield return null;
+			var curShake = Mathf.Sin(720 * x) * 0.15f;
+			display.transform.localPosition = lastPos + Vector3.right * curShake;
+		}
+		display.transform.localPosition = lastPos;
 
+	}
 	IEnumerator SpinDialsToInitial()
     {
 		for (var x = 0; x < dialLetters.Length; x++)
@@ -516,9 +529,12 @@ public class EnigmaCycleScript : MonoBehaviour {
 				yield break;
 			}
 			yield return null;
-			letterSelectables.Last().OnInteract();
-			yield return new WaitForSeconds(0.05f);
-			letterSelectables.Last().OnInteractEnded();
+			if (display.text.Any())
+			{
+				letterSelectables.Last().OnInteract();
+				yield return new WaitForSeconds(0.05f);
+				letterSelectables.Last().OnInteractEnded();
+			}
 			foreach (KMSelectable curSelectable in selectablesToPress)
 			{
 				yield return new WaitForSeconds(0.05f);
