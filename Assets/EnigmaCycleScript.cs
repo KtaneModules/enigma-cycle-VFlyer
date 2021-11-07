@@ -353,7 +353,7 @@ public class EnigmaCycleScript : MonoBehaviour {
 		for (float x = 0; x < 1f; x += Time.deltaTime * 2)
 		{
 			yield return null;
-			var curShake = Mathf.Sin(720 * x) * 0.15f;
+			var curShake = Mathf.Sin(720 * x) * 0.075f;
 			display.transform.localPosition = lastPos + Vector3.right * curShake;
 		}
 		display.transform.localPosition = lastPos;
