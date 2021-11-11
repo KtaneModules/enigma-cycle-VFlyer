@@ -211,14 +211,14 @@
                         <li>The number of 30&deg; clockwise rotations of the fifth, sixth and seventh dials from north, plus one, is the initial amount to shift to the left for the bottom, middle and top rotors, respectively.</li>
                         <li>The direction of the eight dial determines the modifier:<ul>
                             <li>If the dial is facing north, the encryption is performed normally.</li>
-                            <li>If the dial is facing northeast, then the reflector must be used backwards. (I.E. AX reflection pair when read forwards, Z follows AX reflection to C)</li>
-                            <li>If the dial is facing east, southeast or south, the bottom, middle or top rotor, respectively, will instead rotate to the right instead of the left during the encryption process.</li>
+                            <li>If the dial is facing northeast, then the reflector must be used backwards. In other words, flip the reflector, and then encrypt/decrypt as usual.</li>
+                            <li>If the dial is facing east, southeast or south, the bottom, middle or top rotor, respectively, will instead rotate to the right instead of left during the encryption process.</li>
                             <li>If the dial is facing southwest, west or northwest, the bottom, middle or top rotor's initial shift is backwards, respectively. (I.E. If the initial shift requires going 5 left initially, you would go 5 right instead.)</li>
                             </ul>
                         </li>
                     </ul>
                     <p>Use the correct rotor charts and the correct reflector chart to create an Enigma Decryptor.</p>
-                    <p>They are created in this order: Reflector - Bottom Rotor - Middle Rotor - Top Rotor. Above the top rotor, you will type A-Z to use as the plugboard.</p>
+                    <p>They are created in this order: Reflector - Bottom Rotor - Middle Rotor - Top Rotor. Above the top rotor, you will type A-Z to use as the keyboard.</p>
                     <p>Use the schematic at the last 3 pages provided to help you create the Enigma Decryptor.</p>
                     <p class="lore">We were legally required to say that by an entity that manages Enigma Machines.</p>
                 </div>
@@ -232,13 +232,13 @@
                 <div class="page-content">
                     <p>The default encryption follows after aligning the rotors to their initial positions (default referring to when the 8th dial is pointing north):</p>
                     <ol>
-                        <li>Take the first initial letter and note the new letter on upper half of the top rotor in the same position as the plugboard.</li>
+                        <li>Take the first initial letter and note the new letter on upper half of the top rotor in the same position as initial letter on the keyboard.</li>
                         <li>Find the new letter on the bottom half of the top rotor and find the next letter on the top half of the middle rotor in the same position. Note the resulting letter.</li>
                         <li>Repeat the previous step using the bottom half of the middle rotor and the top half of the bottom rotor, and then using the bottom half of the bottom rotor and the top half of the reflector.</li>
                         <li>Look at the letter directly underneath the reflector in the same position and find it in the top half of the reflector.</li>
                         <li>Go up from that letter in the reflector to the letter in the bottom half of the rotor in the same position.</li>
                         <li>Find the new letter on the top half of the bottom rotor and find the next letter on the bottom half of the middle rotor in the same position. Note the resulting letter.</li>
-                        <li>Repeat the previous step using the top half of the middle rotor and the bottom half of the top rotor, and then using the top half of the top rotor and the plugboard.</li>
+                        <li>Repeat the previous step using the top half of the middle rotor and the bottom half of the top rotor, and then using the top half of the top rotor and the keyboard.</li>
                         <li>This is one letter of the encrypted message.</li>
                         <li>If the middle rotor's marking is at the left edge, shift all of the rotors to the left by 1.</li>
                         <li>Otherwise, if the top rotor's marking is at the left edge, shift this rotor and the middle rotor to the left by 1.</li>

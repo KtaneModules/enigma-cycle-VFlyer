@@ -198,16 +198,18 @@ public class EnigmaCycleScript : MonoBehaviour {
 				resultingCharOrder.Add(shiftedRotorBottom[curIdx]);
 			}
 			// Reflect
-			resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
+			
 			var reflectorUsed = enigmaReflectors[enigmaWheelReflectorIdx];
 			if (remainingDialRotation == 1)
             {
 				curIdx = 25 - curIdx;
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 				var reflectionIdx = reflectorUsed.IndexOf(baseAlphabetUsed[curIdx]);
 				if (reflectionIdx % 2 == 0)
                     curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx + 1]);
 				else
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx - 1]);
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 				curIdx = 25 - curIdx;
 			}
 			else
@@ -217,8 +219,8 @@ public class EnigmaCycleScript : MonoBehaviour {
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx + 1]);
 				else
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx - 1]);
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 			}
-			resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 			// Follow up the rotors
 			for (var x = 0; x < enigmaWheelRotorIdx.Length; x++)
 			{
@@ -283,22 +285,25 @@ public class EnigmaCycleScript : MonoBehaviour {
 			if (remainingDialRotation == 1)
 			{
 				curIdx = 25 - curIdx;
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 				var reflectionIdx = reflectorUsed.IndexOf(baseAlphabetUsed[curIdx]);
 				if (reflectionIdx % 2 == 0)
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx + 1]);
 				else
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx - 1]);
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 				curIdx = 25 - curIdx;
 			}
 			else
 			{
 				var reflectionIdx = reflectorUsed.IndexOf(baseAlphabetUsed[curIdx]);
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 				if (reflectionIdx % 2 == 0)
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx + 1]);
 				else
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx - 1]);
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 			}
-			resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 			// Follow up the rotors
 			for (var x = 0; x < enigmaWheelRotorIdx.Length; x++)
 			{
@@ -517,7 +522,7 @@ public class EnigmaCycleScript : MonoBehaviour {
 					var idx = keyboardLayout.IndexOf(aChar);
 					if (idx == -1)
 					{
-						yield return string.Format("sendtochaterror I cannot type the following character onto the module: {0}", aChar);
+						yield return string.Format("sendtochaterror I cannot type the following character onto the module: \"{0}\"", aChar);
 						yield break;
 					}
 					selectablesToPress.Add(letterSelectables[idx]);
@@ -560,7 +565,7 @@ public class EnigmaCycleScript : MonoBehaviour {
 					var idx = keyboardLayout.IndexOf(aChar);
 					if (idx == -1)
 					{
-						yield return string.Format("sendtochaterror I cannot type the following character onto the module: {0}", aChar);
+						yield return string.Format("sendtochaterror I cannot type the following character onto the module: \"{0}\"", aChar);
 						yield break;
 					}
 					selectablesToPress.Add(letterSelectables[idx]);

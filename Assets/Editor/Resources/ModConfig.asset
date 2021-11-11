@@ -33,6 +33,6 @@ MonoBehaviour:
 
 
     ID: enigmaCycle'
-  version: 1.0
+  version: 1.0.02
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 605826da917cd474c8b42c5ed509a738, type: 3}
