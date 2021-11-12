@@ -215,6 +215,7 @@ public class EnigmaCycleScript : MonoBehaviour {
 			else
             {
 				var reflectionIdx = reflectorUsed.IndexOf(baseAlphabetUsed[curIdx]);
+				resultingCharOrder.Add(baseAlphabetUsed[curIdx]);
 				if (reflectionIdx % 2 == 0)
 					curIdx = baseAlphabetUsed.IndexOf(reflectorUsed[reflectionIdx + 1]);
 				else
@@ -238,12 +239,12 @@ public class EnigmaCycleScript : MonoBehaviour {
 			// Shift the rotors for the next encryption
 			if (idxesToRotateOther[enigmaWheelRotorIdx[1]].Contains(enigmaWheelOffsetIndexes[1]))
             {
-				enigmaWheelOffsetIndexes[0] = (enigmaWheelOffsetIndexes[0] + (remainingDialRotation == 4 ? 25 : 1) ) % 26;
+				enigmaWheelOffsetIndexes[0] = (enigmaWheelOffsetIndexes[0] + (remainingDialRotation == 2 ? 25 : 1) ) % 26;
 				enigmaWheelOffsetIndexes[1] = (enigmaWheelOffsetIndexes[1] + (remainingDialRotation == 3 ? 25 : 1)) % 26;
 			}
 			else if (idxesToRotateOther[enigmaWheelRotorIdx[2]].Contains(enigmaWheelOffsetIndexes[2]))
 				enigmaWheelOffsetIndexes[1] = (enigmaWheelOffsetIndexes[1] + (remainingDialRotation == 3 ? 25 : 1)) % 26;
-			enigmaWheelOffsetIndexes[2] = (enigmaWheelOffsetIndexes[2] + (remainingDialRotation == 2 ? 25 : 1)) % 26;
+			enigmaWheelOffsetIndexes[2] = (enigmaWheelOffsetIndexes[2] + (remainingDialRotation == 4 ? 25 : 1)) % 26;
 		}
 		// End Enigma Cipher encrypting message key
 		QuickLog(string.Format("The encrypted message displayed is {0}", encryptedDisplay));
@@ -321,12 +322,12 @@ public class EnigmaCycleScript : MonoBehaviour {
 			// Shift the rotors for the next encryption
 			if (idxesToRotateOther[enigmaWheelRotorIdx[1]].Contains(enigmaWheelOffsetIndexes[1]))
 			{
-				enigmaWheelOffsetIndexes[0] = (enigmaWheelOffsetIndexes[0] + (remainingDialRotation == 4 ? 25 : 1)) % 26;
+				enigmaWheelOffsetIndexes[0] = (enigmaWheelOffsetIndexes[0] + (remainingDialRotation == 2 ? 25 : 1)) % 26;
 				enigmaWheelOffsetIndexes[1] = (enigmaWheelOffsetIndexes[1] + (remainingDialRotation == 3 ? 25 : 1)) % 26;
 			}
 			else if (idxesToRotateOther[enigmaWheelRotorIdx[2]].Contains(enigmaWheelOffsetIndexes[2]))
 				enigmaWheelOffsetIndexes[1] = (enigmaWheelOffsetIndexes[1] + (remainingDialRotation == 3 ? 25 : 1)) % 26;
-			enigmaWheelOffsetIndexes[2] = (enigmaWheelOffsetIndexes[2] + (remainingDialRotation == 2 ? 25 : 1)) % 26;
+			enigmaWheelOffsetIndexes[2] = (enigmaWheelOffsetIndexes[2] + (remainingDialRotation == 4 ? 25 : 1)) % 26;
 		}
 		for (var y = 0; y < debugLetterSequence.Count; y++)
 		{
