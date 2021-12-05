@@ -87,13 +87,13 @@ public class EnigmaCycleScript : MonoBehaviour {
 	readonly Vector3[] dialRotationSets = { Vector3.up * 120, Vector3.up * 45, Vector3.up * 45, Vector3.up * 45, Vector3.up * 30, Vector3.up * 30, Vector3.up * 30, Vector3.up * 45, };
     readonly int[] maxDialRotations = { 3, 8, 8, 8, 12, 12, 12, 8 };
 	// Use this for initialization
-	void QuickLog(string value)
+	void QuickLog(string value, params object[] args)
     {
-		Debug.LogFormat("[Enigma Cycle #{0}] {1}", modID, value);
+		Debug.LogFormat("[Enigma Cycle #{0}] {1}", modID, string.Format(value, args));
     }
-	void QuickLogDebug(string value)
+	void QuickLogDebug(string value, params object[] args)
     {
-		Debug.LogFormat("<Enigma Cycle #{0}> {1}", modID, value);
+		Debug.LogFormat("<Enigma Cycle #{0}> {1}", modID, string.Format(value, args));
     }
 	void Start () {
 		modID = modIDCnt++;
@@ -140,7 +140,7 @@ public class EnigmaCycleScript : MonoBehaviour {
             }
 			else
             {
-				QuickLog(string.Format("{0} was incorrectly submitted. Resetting...", display.text));
+				QuickLog("{0} was incorrectly submitted. Resetting...", display.text);
 				modSelf.HandleStrike();
 				StartCoroutine(ShakeDisplay());
 				display.color = Color.red;
@@ -163,7 +163,7 @@ public class EnigmaCycleScript : MonoBehaviour {
         {
 			assignedDialRotations[x] = Random.Range(0, maxDialRotations[x]);
         }
-		QuickLog(string.Format("Dial rotations from left to right in a zig-zag formation are {0}", assignedDialRotations.Join(", ")));
+		QuickLog("Dial rotations from left to right in a zig-zag formation are {0}", assignedDialRotations.Join(", "));
 		var enigmaWheelOffsetIndexes = assignedDialRotations.TakeLast(4).Take(3).ToArray();
 		var enigmaWheelRotorIdx = assignedDialRotations.Take(4).Skip(1).ToArray();
 		var enigmaWheelReflectorIdx = assignedDialRotations.First();
@@ -247,14 +247,14 @@ public class EnigmaCycleScript : MonoBehaviour {
 			enigmaWheelOffsetIndexes[2] = (enigmaWheelOffsetIndexes[2] + (remainingDialRotation == 4 ? 25 : 1)) % 26;
 		}
 		// End Enigma Cipher encrypting message key
-		QuickLog(string.Format("The encrypted message displayed is {0}", encryptedDisplay));
+		QuickLog("The encrypted message displayed is {0}", encryptedDisplay);
 		for (var y = 0; y < debugLetterSequence.Count; y++)
 		{
 			debugLetterSequence[y].Reverse();
-			QuickLog(string.Format("For the {1} letter, the path the the expert should take to decrypt is {0}", debugLetterSequence[y].Join(" -> "), positionIndexes[y]));
+			QuickLog("For the {1} letter, the path the the expert should take to decrypt is {0}", debugLetterSequence[y].Join(" -> "), positionIndexes[y]);
 		}
-		QuickLog(string.Format("The message is {0}", selectedMessageResponsePair.Key));
-		QuickLog(string.Format("The response is {0}", selectedMessageResponsePair.Value));
+		QuickLog("The message is {0}", selectedMessageResponsePair.Key);
+		QuickLog("The response is {0}", selectedMessageResponsePair.Value);
 		for (var x = 0; x < enigmaWheelOffsetIndexes.Length; x++)
 		{
 			if (x + 5 == remainingDialRotation)
@@ -331,10 +331,10 @@ public class EnigmaCycleScript : MonoBehaviour {
 		}
 		for (var y = 0; y < debugLetterSequence.Count; y++)
 		{
-			QuickLog(string.Format("For the {1} letter, the path the module took to encrypt is {0}", debugLetterSequence[y].Join(" -> "), positionIndexes[y]));
+			QuickLog("For the {1} letter, the path the module took to encrypt is {0}", debugLetterSequence[y].Join(" -> "), positionIndexes[y]);
 		}
 		// End Enigma Cipher encrypting response
-		QuickLog(string.Format("The encrypted response to submit is {0}", expectedResponse));
+		QuickLog("The encrypted response to submit is {0}", expectedResponse);
 		StartCoroutine(SpinDialsToInitial());
     }
 	/*
@@ -513,12 +513,12 @@ public class EnigmaCycleScript : MonoBehaviour {
 		}
 		else if (matchType.Success)
         {
-			var matchedValue = matchType.Value.ToUpperInvariant().Split().Skip(1);
-
+			var matchedValue = matchType.Value;
+			//QuickLogDebug("Debug command: {0}", cmd.Replace(matchedValue, ""));
 			var selectablesToPress = new List<KMSelectable>();
-			foreach (string stringSet in matchedValue)
+			foreach (string stringSet in cmd.Replace(matchedValue, "").Split())
 			{
-				foreach (char aChar in stringSet)
+				foreach (char aChar in stringSet.ToUpperInvariant())
 				{
 					var idx = keyboardLayout.IndexOf(aChar);
 					if (idx == -1)
