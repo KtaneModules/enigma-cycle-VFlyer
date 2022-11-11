@@ -356,11 +356,12 @@ public class EnigmaCycleScript : MonoBehaviour {
 	IEnumerator ShakeDisplay()
     {
 		var lastPos = display.transform.localPosition;
+		var flipShake = Random.value < 0.5f;
 		for (float x = 0; x < 1f; x += Time.deltaTime * 2)
 		{
 			yield return null;
 			var curShake = Mathf.Sin(720 * x) * 0.075f;
-			display.transform.localPosition = lastPos + Vector3.right * curShake;
+			display.transform.localPosition = lastPos + (flipShake ? Vector3.left : Vector3.right) * curShake;
 		}
 		display.transform.localPosition = lastPos;
 
@@ -490,7 +491,7 @@ public class EnigmaCycleScript : MonoBehaviour {
     }
 
 #pragma warning disable 414
-	private string TwitchHelpMessage = "\"!{0} <A-Z>\" (Example: \"!{0} GREATCMD\") [Inputs those letters, spaces can be used to separate each character] | \"!{0} cancel/delete/clear\" [Deletes inputs], \"!{0} submit/type/enter/input ALUMITES\" [Clears the display, and then submit \"ALUMITES\" on the module]";
+	private string TwitchHelpMessage = "\"!{0} <A-Z>\" (Example: \"!{0} GREATCMD\") [Inputs those letters, spaces can be used to separate each character] | \"!{0} cancel/delete/clear/reset\" [Deletes inputs], \"!{0} submit/type/enter/input ALUMITES\" [Clears the display, and then submit \"ALUMITES\" on the module]";
 #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string cmd)
     {
@@ -499,7 +500,7 @@ public class EnigmaCycleScript : MonoBehaviour {
 			yield return "sendtochat {0}, I don't think it's worth to type random stuff here when it is solving or solved already. It won't even show up anyway.";
 			yield break;
         }
-		Match matchDelete = Regex.Match(cmd, @"^(delete|clear|cancel)$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant),
+		Match matchDelete = Regex.Match(cmd, @"^(delete|clear|cancel|reset)$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant),
 			matchType = Regex.Match(cmd, @"^(type|enter|input|submit)\s", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 		if (matchDelete.Success)
         {

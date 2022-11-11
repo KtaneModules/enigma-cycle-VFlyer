@@ -40,9 +40,9 @@
      inkscape:window-height="1057"
      id="namedview28"
      showgrid="false"
-     inkscape:zoom="2.818135"
-     inkscape:cx="186.01583"
-     inkscape:cy="141.73736"
+     inkscape:zoom="9.9955726"
+     inkscape:cx="129.24069"
+     inkscape:cy="113.825"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -754,12 +754,12 @@
   <g
      transform="translate(0.03936579,1.0622142)"
      id="g238"
-     style="font-style:normal;font-weight:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:none"
+     style="font-style:normal;font-weight:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
      aria-label="X"
      inkscape:transform-center-x="-36.698565"
      inkscape:transform-center-y="-20.945067">
     <path
-       style="fill:#4d4d4d"
+       style="fill:#000000;fill-opacity:1"
        inkscape:connector-curvature="0"
        id="path236"
        d="m 99.100612,270.3481 -5.354167,7.66667 5.34375,7.84375 h -2.385417 l -4.229166,-6.38542 -4.333334,6.38542 h -2.25 l 5.40625,-7.75 -5.28125,-7.76042 h 2.375 l 4.177084,6.30209 4.270833,-6.30209 z" />
