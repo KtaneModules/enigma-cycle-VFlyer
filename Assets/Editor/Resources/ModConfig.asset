@@ -14,7 +14,7 @@ MonoBehaviour:
   id: enigmaCycleMod
   title: Enigma Cycle
   author: VFlyer
-  description: 'Enigma Cycle ver 1.0.04
+  description: 'Enigma Cycle ver 1.0.05
 
     [i]Round and round and round it goes. When will it stop? Hell if I know.[/i]
 
@@ -33,6 +33,6 @@ MonoBehaviour:
 
 
     ID: enigmaCycle'
-  version: 1.0.04
+  version: 1.0.05
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 605826da917cd474c8b42c5ed509a738, type: 3}

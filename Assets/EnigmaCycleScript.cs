@@ -565,7 +565,7 @@ public class EnigmaCycleScript : MonoBehaviour {
 				foreach (char aChar in stringSet)
 				{
 					var idx = keyboardLayout.IndexOf(aChar);
-					if (idx == -1)
+					if (idx == -1 || blacklistedKeys.Contains(aChar))
 					{
 						yield return string.Format("sendtochaterror I cannot type the following character onto the module: \"{0}\"", aChar);
 						yield break;
