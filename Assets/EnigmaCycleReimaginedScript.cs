@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
-public class EnigmaCycleScript : MonoBehaviour {
+public class EnigmaCycleReimaginedScript : MonoBehaviour {
 
 	const string keyboardLayout = "QWERTYUIOPASDFGHJKLZXCVBNM",
 		blacklistedKeys = "", baseAlphabetUsed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", disarmText = "WELLDONE";
